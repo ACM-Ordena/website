@@ -158,20 +158,20 @@
 								<div class="container">
 									<h3>Contactez-nous</h3>
 									<p>Vous avez des questions ou souhaitez une consultation pour votre projet documentaire ? Envoyez-nous un message et nous reviendrons vers vous rapidement. Les rencontres et accompagnements sont offerts en soirée et les fins de semaine, sur rendez-vous.</p>
-									<form method="post" action="#">
-										<div class="row gtr-uniform">
-											<div class="col-6 col-12-xsmall"><input type="text" name="name" id="name" placeholder="Votre nom" /></div>
-											<div class="col-6 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Votre email" /></div>
-											<div class="col-12"><input type="text" name="subject" id="subject" placeholder="Sujet" /></div>
-											<div class="col-12"><textarea name="message" id="message" placeholder="Votre message" rows="6"></textarea></div>
-											<div class="col-12">
-												<ul class="actions">
-													<li><input type="submit" class="primary" value="Envoyer" /></li>
-													<li><input type="reset" value="Réinitialiser" /></li>
-												</ul>
-											</div>
-										</div>
-									</form>
+									<form method="POST" action="https://formspree.io/f/mjgeeqyp">
+	<div class="row gtr-uniform">
+		<div class="col-6 col-12-xsmall"><input type="text" name="name" id="name" placeholder="Votre nom" required /></div>
+		<div class="col-6 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Votre email" required /></div>
+		<div class="col-12"><input type="text" name="subject" id="subject" placeholder="Sujet" required /></div>
+		<div class="col-12"><textarea name="message" id="message" placeholder="Votre message" rows="6" required></textarea></div>
+		<div class="col-12">
+			<ul class="actions">
+				<li><input type="submit" class="primary" value="Envoyer" /></li>
+				<li><input type="reset" value="Réinitialiser" /></li>
+			</ul>
+		</div>
+	</div>
+</form>
 								</div>
 							</section>
 
@@ -200,6 +200,7 @@
 	</body>
 
 </html>
+
 
 
 
