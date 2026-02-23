@@ -34,17 +34,28 @@
   function getCurrentPath() {
     let path = window.location.pathname;
     
-    // Gérer les domaines custom vs gh-pages
     if (path === '/' || path === '') {
       return '/';
     }
     
-    // Normaliser le chemin
     if (!path.endsWith('/')) {
       path = path + '/';
     }
     
     return path;
+  }
+
+  // Fonction pour fermer le menu mobile (important!)
+  function closeMenu() {
+    const menu = document.getElementById('menu');
+    if (menu) {
+      menu.classList.remove('active');
+    }
+    // Aussi fermer via body
+    const body = document.body;
+    if (body.classList.contains('is-menu-visible')) {
+      body.classList.remove('is-menu-visible');
+    }
   }
 
   // Fonction pour naviguer vers une section
@@ -53,8 +64,13 @@
     const section = document.getElementById(sectionId);
     
     if (section) {
-      // Scroll vers la section
-      section.scrollIntoView({ behavior: 'smooth' });
+      // Fermer le menu mobile d'abord
+      closeMenu();
+      
+      // Scroll vers la section (petit délai pour laisser le menu se fermer)
+      setTimeout(function() {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }, 300);
       
       // Mettre à jour la classe active dans le menu
       document.querySelectorAll('.nav-link').forEach(link => {
