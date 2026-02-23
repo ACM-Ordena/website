@@ -1,0 +1,10 @@
+# GitHub Pages configuration for Ordena
+markdown: kramdown
+plugins: []
+exclude:
+  - .gitignore
+  - node_modules
+  - Gemfile
+  - Gemfile.lock
+include:
+  - .nojekyll
