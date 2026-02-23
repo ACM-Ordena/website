@@ -1,4 +1,4 @@
-// Router pour URLs SEO-friendly
+// Router pour URLs SEO-friendly sur GitHub Pages
 (function() {
   // Mapping des URLs aux sections
   const urlMap = {
@@ -30,13 +30,21 @@
     '/': 'Ordena - Gestion documentaire'
   };
 
-  // Fonction pour obtenir le pathname sans le trailing slash (sauf pour root)
-  function getNormalizedPath() {
+  // Fonction pour obtenir le pathname
+  function getCurrentPath() {
     let path = window.location.pathname;
-    if (path !== '/' && path.endsWith('/')) {
-      path = path.slice(0, -1);
+    
+    // Gérer les domaines custom vs gh-pages
+    if (path === '/' || path === '') {
+      return '/';
     }
-    return path + '/';
+    
+    // Normaliser le chemin
+    if (!path.endsWith('/')) {
+      path = path + '/';
+    }
+    
+    return path;
   }
 
   // Fonction pour naviguer vers une section
@@ -55,8 +63,8 @@
       
       // Trouver et activer le bon lien
       document.querySelectorAll('.nav-link').forEach(link => {
-        if (link.getAttribute('href') === path || 
-            (path === '/' && link.getAttribute('href') === '/a-propos/')) {
+        const href = link.getAttribute('href');
+        if (href === path || (path === '/' && href === '/a-propos/')) {
           link.classList.add('active');
         }
       });
@@ -97,39 +105,20 @@
 
   // Gestion du bouton "retour" du navigateur
   window.addEventListener('popstate', function(e) {
-    const path = e.state?.path || '/a-propos/';
+    const path = e.state?.path || '/';
     navigateToSection(path);
   });
 
-  // Au chargement initial de la page
-  document.addEventListener('DOMContentLoaded', function() {
-    const currentPath = getNormalizedPath();
+  // Au chargement de la page
+  window.addEventListener('DOMContentLoaded', function() {
+    const currentPath = getCurrentPath();
     
-    // Si l'URL n'existe pas dans notre map, rediriger vers l'accueil
-    if (!urlMap[currentPath]) {
-      window.history.replaceState({ path: '/' }, '', '/');
-      navigateToSection('/');
+    // Normaliser l'URL
+    if (currentPath !== '/' && !currentPath.endsWith('/')) {
+      window.history.replaceState({ path: currentPath + '/' }, '', currentPath + '/');
+      navigateToSection(currentPath + '/');
     } else {
       navigateToSection(currentPath);
     }
   });
-
-  // Si le DOM est déjà chargé (script chargé après)
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function() {
-      const currentPath = getNormalizedPath();
-      if (!urlMap[currentPath]) {
-        window.history.replaceState({ path: '/' }, '', '/');
-        navigateToSection('/');
-      } else {
-        navigateToSection(currentPath);
-      }
-    });
-  } else {
-    const currentPath = getNormalizedPath();
-    if (!urlMap[currentPath]) {
-      window.history.replaceState({ path: '/' }, '', '/');
-      navigateToSection(currentPath);
-    }
-  }
 })();
