@@ -10,11 +10,17 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		
+		<!-- Meta descriptions dynamiques (voir JS) -->
+		<meta name="description" content="Ordena - Gestion documentaire. Mettons de l'ordre dans vos documents. Simplifions votre quotidien.">
+		
 		<!-- Open Graph (Facebook, Messenger, LinkedIn) -->
 		<meta property="og:title" content="Ordena - Gestion documentaire" />
 		<meta property="og:description" content="Mettons de l'ordre dans vos documents. Simplifions votre quotidien." />
 		<meta property="og:url" content="https://ordena.ca/" />
 		<meta property="og:type" content="website" />
+
+		<!-- Canonical -->
+		<link rel="canonical" href="https://ordena.ca/" />
 
 		<link rel="stylesheet" href="assets/css/main.css" />
 	</head>
@@ -27,17 +33,17 @@
 		
 				<header>
 					<span class="image avatar"><img src="images/avatar1.jpg" alt="Anna Christina" /></span>
-					<h1 id="logo"><a href="#">Anna Christina</a></h1>
+					<h1 id="logo"><a href="/">Anna Christina</a></h1>
 					<p>Consultante en gestion documentaire<br />
 					</p>
 				</header>
 				<nav id="nav">
 					<ul>
-						<li><a href="#one" class="active"> À propos </a></li>
-						<li><a href="#two"> Services </a></li>
-						<li><a href="#three"> Réalisations </a></li>
-						<li><a href="#four"> Contact </a></li>
-						<li><a href="#five"> Politique de confidentialité </a></li>
+						<li><a href="/a-propos/" class="nav-link active"> À propos </a></li>
+						<li><a href="/services/" class="nav-link"> Services </a></li>
+						<li><a href="/cas-clients/" class="nav-link"> Réalisations </a></li>
+						<li><a href="/contact/" class="nav-link"> Contact </a></li>
+						<li><a href="/politique-confidentialite/" class="nav-link"> Politique de confidentialité </a></li>
 					</ul>
 				</nav>
 <footer>
@@ -56,8 +62,8 @@
 				<!-- Main -->
 					<div id="main">
 
-						<!-- One -->
-							<section id="one">
+						<!-- One : À propos -->
+							<section id="one" class="page-section" data-url="/a-propos/">
 								<div class="image main" data-position="center">
 									<img src="images/banner.jpg" alt="Ordena - Organisation" />
 								</div>
@@ -92,15 +98,15 @@
 											Conformité documentaire et traçabilité selon la Loi 16 pour la protection de l'immeuble et des droits des copropriétaires.
 										</li>
 										<li class="icon solid fa-laptop">
-											<strong>Professionnels indépendants et travailleurs autonomes</strong><br>
+											<strong>Professionnels indépendants &amp; travailleurs autonomes</strong><br>
 											Organisation documentaire pour optimiser votre productivité et votre gestion administrative.
 										</li>
 									</ul>
 								</div>
 							</section>
 
-						<!-- Two -->
-							<section id="two">
+						<!-- Two : Services -->
+							<section id="two" class="page-section" data-url="/services/">
 								<div class="container">
 									<h3> Comment nous vous aidons </h3>
 										<p>Chez Ordena, nous vous aidons à remettre de l'ordre dans vos documents, physiques et numériques, de manière simple et efficace. Voici comment :</p>
@@ -133,8 +139,8 @@
 								</div>
 							</section>
 
-						<!-- Three -->
-							<section id="three">
+						<!-- Three : Réalisations -->
+							<section id="three" class="page-section" data-url="/cas-clients/">
 								<div class="container">
 									<h3>Quelques réalisations</h3>
 									<p>Découvrez comment nous avons transformé le désordre documentaire en systèmes structurés et accessibles pour nos clients.</p>
@@ -164,8 +170,8 @@
 								</div>
 							</section>
 
-						<!-- Four -->
-							<section id="four">
+						<!-- Four : Contact -->
+							<section id="four" class="page-section" data-url="/contact/">
 								<div class="container">
 									<h3>Contactez-nous</h3>
 									<p>Vous avez des questions ou souhaitez une consultation pour votre projet documentaire ? Envoyez-nous un message et nous reviendrons vers vous rapidement. Les rencontres et accompagnements sont offerts en soirée et les fins de semaine, sur rendez-vous.</p>
@@ -186,8 +192,8 @@
 								</div>
 							</section>
 
-						<!-- Five -->
-							<section id="five">
+						<!-- Five : Politique de confidentialité -->
+							<section id="five" class="page-section" data-url="/politique-confidentialite/">
 								<div class="container">
 									<h3>Politique de confidentialité</h3>
 									<p><strong>Date de mise à jour : 22 février 2026</strong></p>
@@ -257,6 +263,9 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+
+			<!-- SEO URL Routing Script -->
+			<script src="assets/js/router.js"></script>
 
 	</body>
 
